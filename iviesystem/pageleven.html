@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>推送配置</title>
+		<link rel="stylesheet" href="css/plugins/iview2.14/iview.css" />
+		<link rel="stylesheet" href="css/tinys_normalize.css" />
+		<link rel="stylesheet" href="css/tinys_public.css" />
+		<link rel="stylesheet" href="css/tinys_main.css" />
+	</head>
+	<body>
+		<div class="pageleven content content-down demo">
+			<div class="content-td">
+				<div class="td-push-con">
+					<div class="td-configure-top">
+						<b>推送配置</b>(配置用于发送Push消息的推送通道)
+					</div>
+					<div class="td-configure-left td-l">
+						<div class="td-configure-tit">
+							<i class="logo-apple"></i>iOS推送配置
+						</div>
+						<div class="td-config-gray">
+							<div class="td-config-tit">
+								<font>申请使用苹果官方推送服务 </font>
+							</div>
+							<div class="td-config-text">
+								<div class="td-text-bor clearfix">
+									<div class="td-text-diploma">
+										iOS 测试证书
+										<tooltip placement="bottom-start" class="ml6">
+											?
+											<p slot="content">
+												<span style="white-space: normal;">从集成TalkingDataApp Analytics SDK开始，截止某日统计到的设备总量</span>
+											</p>
+										</tooltip>
+									</div>
+									<div class="td-text-upload">
+										<div class="td-text-up">
+											<input type="text" name="textfield" class="td-txt" placeholder="请使用.p12格式证书..." readonly="readonly" value="" style="color: green;">
+											<i-button data-state="update" @click="updatemetion">更新</i-button>
+											<input type="button">
+											<input type="file" name="fileField" class="td-file fileField" size="28" v-show="fileshows">
+										</div>
+									</div>
+									<div class="td-text-upload td-wh-con" style="display: block;">
+										<div class="td-password">证书密码</div>
+										<div class="td-text-plse"><input type="text" placeholder="未设密码请直接点击确定" class="td-hair-ipt"></div>
+										<i-button>确定</i-button>
+									</div>
+									<div class="td-text-upload cancel" style="width: 60px; float: right; display: block;">
+										<i-button>取消</i-button>
+									</div>
+								</div>
+								<div class="td-text-bor clearfix">
+									<div class="td-text-diploma">
+										iOS 测试证书
+										<tooltip placement="bottom-start" class="ml6">
+											?
+											<p slot="content">
+												<span style="white-space: normal;">从集成TalkingDataApp Analytics SDK开始，截止某日统计到的设备总量</span>
+											</p>
+										</tooltip>
+									</div>
+									<div class="td-text-upload">
+										<div class="td-text-up">
+											<input type="text" name="textfield" class="td-txt" placeholder="请使用.p12格式证书..." readonly="readonly" value="" style="color: green;">
+											<i-button data-state="update" @click="updatemetion">更新</i-button>
+											<input type="button">
+											<input type="file" name="fileField" class="td-file fileField" size="28" v-show="fileshows">
+										</div>
+									</div>
+									<div class="td-text-upload td-wh-con" style="display: block;">
+										<div class="td-password">证书密码</div>
+										<div class="td-text-plse"><input type="text" placeholder="未设密码请直接点击确定" class="td-hair-ipt"></div>
+										<i-button>确定</i-button>
+									</div>
+									<div class="td-text-upload cancel" style="width: 60px; float: right; display: block;">
+										<i-button>取消</i-button>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="td-configure-tit">
+							<i class="logo-android"></i>Android推送配置
+						</div>
+						<div class="td-config-gray">
+							<div class="td-config-tit">
+								<font>除了提供内建的TD推送外，TalkingData还支持使用 第三方推送平台 发送消息，只需简单配置 </font>
+							</div>
+							<div class="td-config-text">
+								<div class="td-text-bor clearfix">
+									<i-form ref="formDynamic" :model="formDynamic" :label-width="80" style="width: 300px">
+										<form-item v-for="(item, index) in formDynamic.items" v-if="item.status" :key="index" :label="'选项 ' + item.index" :prop="'items.' + index + '.value'" :rules="{required: true, message: 'Item ' + item.index +' can not be empty', trigger: 'blur'}">
+											<row>
+												<i-col span="18">
+													<i-input type="text" v-model="item.value" placeholder="Enter something..."></i-input>
+												</i-col>
+												<i-col span="4" offset="1">
+													<i-button @click="handleRemove(index)">清除</i-button>
+												</i-col>
+											</row>
+										</form-item>
+										<form-item>
+											<row>
+												<i-col span="12">
+													<i-button type="dashed" long @click="handleAdd" icon="md-add">添加新的配置</i-button>
+												</i-col>
+											</row>
+										</form-item>
+									</i-form>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript" src="js/plugins/vue2.5.17/vue.js"></script>
+	<script type="text/javascript" src="js/plugins/iview2.14/iview.min.js"></script>
+	<script src="js/plugins/jquery3.3.1/jquery.min.js"></script>
+	<script>
+		var vue = new Vue({
+			el: ".pageleven",
+			data: {
+				fileshows: false,
+				index: 1,
+				formDynamic: {
+					items: [{
+						value: '',
+						index: 1,
+						status: 1
+					}]
+				}
+			},
+			methods: {
+				updatemetion() {
+					this.fileshows = true;
+				},
+				handleAdd() {
+					this.index++;
+					this.formDynamic.items.push({
+						value: '',
+						index: this.index,
+						status: 1
+					});
+				},
+				handleRemove(index) {
+					this.formDynamic.items[index].status = 0;
+				}
+			}
+		})
+		$(document).ready(function() {
+			$('.fileField').change(function() {
+				var text = $('.fileField').val();
+				$('.td-txt').attr("placeholder", text);
+			});
+		});
+	</script>
+</html>
