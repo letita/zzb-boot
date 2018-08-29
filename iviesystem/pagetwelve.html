@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="css/plugins/iview2.14/iview.css" />
+		<link rel="stylesheet" href="css/tinys_main.css" />
+		<link rel="stylesheet" href="css/tinys_normalize.css" />
+		<link rel="stylesheet" href="css/tinys_public.css" />
+	</head>
+
+	<body>
+		<div class="pagetwelve content content-down">
+			<div class="data-exploration-header">
+				<div class="data-exploration-title">
+					<h1>数据探索</h1>
+					<em></em>
+					<i-select v-model="model8" clearable style="margin-left: 24px;width:200px">
+						<i-option v-for="item in cityList" :value="item.value" :key="item.value">{{ item.label }}</i-option>
+					</i-select>
+				</div>
+				<i-button>新建</i-button>
+			</div>
+			<div class="data-exploration-addmetric ivu-row">
+				<div class="data-exploration-y-left data-exploration-metric-box ivu-col ivu-col-span-7">
+					<div class="data-exploration-metric-title">
+						<span>指标</span>
+					</div>
+					<button class="data-exploration-metric"><i class="ivu-icon ivu-icon-ios-plus-outline"></i>
+		                添加指标
+		            </button>
+				</div>
+				<div class="data-exploration-y-left data-exploration-metric-box ivu-col ivu-col-span-7">
+					<div class="data-exploration-metric-title">
+						<span>指标</span>
+					</div>
+					<button class="data-exploration-metric"><i class="ivu-icon ivu-icon-ios-plus-outline"></i>
+		                添加指标
+		            </button>
+				</div>
+				<div class="data-exploration-y-left data-exploration-metric-box ivu-col ivu-col-span-7">
+					<div class="data-exploration-metric-title">
+						<span>指标</span>
+					</div>
+					<button class="data-exploration-metric" @click="modal5 = true"><i class="ivu-icon ivu-icon-ios-plus-outline"></i>
+		                添加指标
+		            </button>
+					<modal v-model="modal5" title="选择指标" width="600">
+						<p>Customize width, unit px, default 520px.</p>
+						<p>The width of the dialog box is responsive, and the width becomes <code>auto</code> when the screen size is less than 768px.</p>
+					</modal>
+				</div>
+				<div class="data-exploration-query ivu-col ivu-col-span-3">
+					<i-button style="width: 100px;height: 44px;">查询</i-button>
+				</div>
+			</div>
+			<div class="data-exploration-chartBox">
+				<div class="">
+					<div id="data-chart"></div>
+				</div>
+				<div class="noborder mt20">
+					<i-table  :columns="columns5" :data="data5"></i-table>
+				</div>
+				<div class="pageContent">
+					<page :total="100"></page>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript" src="js/plugins/vue2.5.17/vue.js"></script>
+	<script type="text/javascript" src="js/plugins/iview2.14/iview.min.js"></script>
+	<script type="text/javascript" src="js/plugins/echarts2.0/echarts.min.js"></script>
+	<script>
+		var vue = new Vue({
+			el: ".pagetwelve",
+			data: {
+				cityList: [{
+						value: 'New York',
+						label: 'New York'
+					},
+					{
+						value: 'London',
+						label: 'London'
+					},
+					{
+						value: 'Sydney',
+						label: 'Sydney'
+					},
+					{
+						value: 'Ottawa',
+						label: 'Ottawa'
+					},
+					{
+						value: 'Paris',
+						label: 'Paris'
+					},
+					{
+						value: 'Canberra',
+						label: 'Canberra'
+					}
+				],
+				model8: '',
+				modal5: false,
+				columns5: [{
+						title: 'Date',
+						key: 'date',
+						sortable: true
+					},
+					{
+						title: 'Name',
+						key: 'name'
+					},
+					{
+						title: 'Age',
+						key: 'age',
+						sortable: true
+					},
+					{
+						title: 'Address',
+						key: 'address'
+					}
+				],
+				data5: [{
+						name: 'John Brown',
+						age: 18,
+						address: 'New York No. 1 Lake Park',
+						date: '2016-10-03'
+					},
+					{
+						name: 'Jim Green',
+						age: 24,
+						address: 'London No. 1 Lake Park',
+						date: '2016-10-01'
+					},
+					{
+						name: 'Joe Black',
+						age: 30,
+						address: 'Sydney No. 1 Lake Park',
+						date: '2016-10-02'
+					},
+					{
+						name: 'Jon Snow',
+						age: 26,
+						address: 'Ottawa No. 2 Lake Park',
+						date: '2016-10-04'
+					},
+					{
+						name: 'Jim Green',
+						age: 24,
+						address: 'London No. 1 Lake Park',
+						date: '2016-10-01'
+					},
+					{
+						name: 'Joe Black',
+						age: 30,
+						address: 'Sydney No. 1 Lake Park',
+						date: '2016-10-02'
+					},
+					{
+						name: 'Jon Snow',
+						age: 26,
+						address: 'Ottawa No. 2 Lake Park',
+						date: '2016-10-04'
+					}
+				]
+			}
+		});
+		var myChart = echarts.init(document.getElementById('data-chart'));
+		var option = {
+			color: ['#1495eb'],
+			tooltip: {
+				trigger: 'axis',
+				axisPointer: { // 坐标轴指示器，坐标轴触发有效
+					type: 'shadow' // 默认为直线，可选为：'line' | 'shadow'
+				}
+			},
+			grid: {
+				left: '0%',
+				right: '1%',
+				bottom: '3%',
+				containLabel: true
+			},
+			//工具栏
+			toolbox: {
+				feature: {
+					saveAsImage: {},
+					dataView: {
+						show: true,
+						readOnly: true,
+						optionToContent: function(opt) {
+							var axisData = opt.yAxis[0].data;
+							var series = opt.series;
+							var tdHeaders = '<td>时间</td>'; //表头
+							series.forEach(function(item) {
+								tdHeaders += '<td>' + item.name + '</td>'; //组装表头
+							});
+							var table = '<div class="table-responsive"><table class="table table-bordered table-hover" style="text-align:center"><tbody><tr>' + tdHeaders + '</tr>';
+							var tdBodys = ''; //数据
+							for(let i = 0, l = axisData.length; i < l; i++) {
+								for(let j = 0; j < series.length; j++) {
+									tdBodys += '<td>' + series[j].data[i] + '</td>'; //组装表数据
+								}
+								table += '<tr><td>' + axisData[i] + '</td>' + tdBodys + '</tr>';
+								tdBodys = '';
+							}
+							table += '</tbody></table></div>';
+							return table;
+						}
+					}
+				}
+			},
+			yAxis: [{
+				type: 'category',
+				data: ['Mon', 'Tue', 'Wed'],
+				axisTick: {
+					alignWithLabel: true
+				}
+			}],
+			xAxis: [{
+				type: 'value'
+			}],
+			series: [{
+				name: '直接访问',
+				type: 'bar',
+				barWidth: '18%',
+				data: [10, 52, 200]
+			}]
+		};
+		myChart.setOption(option);
+	</script>
+
+</html>

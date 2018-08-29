@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>样式六</title>
+		<link rel="stylesheet" href="css/plugins/iview2.14/iview.css" />
+		<link rel="stylesheet" href="css/tinys_main.css" />
+		<link rel="stylesheet" href="css/tinys_normalize.css" />
+		<link rel="stylesheet" href="css/tinys_public.css" />
+	</head>
+	<body>
+		<div class="pagesix content content-down demo">
+			<div class="td-new-activity">
+				<a href=""><i class="ivu-icon ivu-icon-plus"></i>新建推送活动</a>
+			</div>
+			<div class="mt15">
+				<i-table border :columns="columns5" :data="data5"></i-table>
+			</div>
+			<div class="pageContent">
+				<page :total="100"></page>
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript" src="js/plugins/vue2.5.17/vue.js"></script>
+	<script type="text/javascript" src="js/plugins/iview2.14/iview.min.js"></script>
+	<script>
+		var vue = new Vue({
+			el: ".pagesix",
+			data: {
+				columns5: [
+					{
+						title:"头像",
+						key:'headimg',
+						width:120,
+						align: 'center',
+						render:(h,params)=>{
+							return h('img',{
+								attrs:{
+									src:params.row.headimg
+								},
+								style:{
+									width:'40px',
+									height:'40px',
+									display: 'table',
+									margin: '0 auto'
+								}
+							})
+						}
+					},
+					{
+						title: 'Date',
+						key: 'date',
+						sortable: true
+					},
+					{
+						title: 'Name',
+						key: 'name'
+					},
+					{
+						title: 'Age',
+						key: 'age',
+						sortable: true
+					},
+					{
+						title: 'Address',
+						key: 'address'
+					},
+					{
+						title: "Action",
+						key: "action",
+						align: 'center',
+						render: (h, params) => {
+							return h('div', [
+								h('Button', {
+									props: {
+										type: 'info',
+										size: 'small'
+									},
+									style: {
+										marginRight: '5px'
+									},
+									on: {
+										click: () => {
+											//this.show(params.index)
+											//按钮方法
+										}
+									}
+								}, '编辑'),
+								h('Button', {
+									props: {
+										type: 'error',
+										size: 'small'
+									},
+									style: {
+										marginRight: '5px'
+									},
+									on: {
+										click: () => {
+											//this.show(params.index)
+											//方法
+										}
+									}
+								}, '删除'),
+								h('strong',{
+									style:{
+										marginLeft:'10px',
+										marginRight:'5px'
+									},
+								},'处理'),
+								h('i-switch',{
+									props:{
+										type:'primary',
+										value:params.row.treatment === 1
+									},
+									style:{
+										marginRight:'5px'
+									},
+									on:{
+										'on-change':(value)=>{
+											console.log(value)
+										}
+									}
+								})
+
+							]);
+						}
+					}
+				],
+				data5: [{
+						headimg:'./img/avtar.jpg',
+						name: 'John Brown',
+						age: 18,
+						address: 'New York No. 1 Lake Park',
+						date: '2016-10-03'
+					},
+					{
+						headimg:'./img/avtar.jpg',
+						name: 'Jim Green',
+						age: 24,
+						address: 'London No. 1 Lake Park',
+						date: '2016-10-01'
+					},
+					{
+						headimg:'./img/avtar.jpg',
+						name: 'Joe Black',
+						age: 30,
+						address: 'Sydney No. 1 Lake Park',
+						date: '2016-10-02'
+					},
+					{
+						headimg:'./img/avtar.jpg',
+						name: 'Jon Snow',
+						age: 26,
+						address: 'Ottawa No. 2 Lake Park',
+						date: '2016-10-04'
+					},
+					{
+						headimg:'./img/avtar.jpg',
+						name: 'Jim Green',
+						age: 24,
+						address: 'London No. 1 Lake Park',
+						date: '2016-10-01'
+					},
+					{
+						headimg:'./img/avtar.jpg',
+						name: 'Joe Black',
+						age: 30,
+						address: 'Sydney No. 1 Lake Park',
+						date: '2016-10-02'
+					},
+					{
+						headimg:'./img/avtar.jpg',
+						name: 'Jon Snow',
+						age: 26,
+						address: 'Ottawa No. 2 Lake Park',
+						date: '2016-10-04'
+					}
+				]
+			}
+		})
+	</script>
+
+</html>

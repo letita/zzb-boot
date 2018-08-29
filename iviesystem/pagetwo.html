@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>样式二</title>
+		<link rel="stylesheet" href="css/plugins/iview2.14/iview.css" />
+		<link rel="stylesheet" href="css/tinys_main.css" />
+		<link rel="stylesheet" href="css/tinys_normalize.css" />
+		<link rel="stylesheet" href="css/tinys_public.css" />
+	</head>
+	<body>
+		<div class="pagetwo content content-down demo">
+			<div class="overview">
+				<h1>应用概览</h1>
+				<row>
+					<i-col>
+						<div class="overview-box">
+							<div class="overview-num">
+								122,480
+							</div>
+						</div>
+						<div class="overview-name">
+							<tooltip placement="bottom-start">
+								累计设备
+								<p slot="content">
+									<span style="white-space: normal;">从集成TalkingDataApp Analytics SDK开始，截止某日统计到的设备总量</span>
+								</p>
+							</tooltip>
+						</div>
+					</i-col>
+					<i-col>
+						<div class="overview-box">
+							<div class="overview-num">
+								6,223
+							</div>
+							<div class="overview-equipment">
+								<i class="ivu-icon ivu-icon-arrow-right-a"></i>
+								<span class="overview-equ">0.00%</span>
+							</div>
+						</div>
+						<div class="overview-name">
+							<tooltip placement="bottom-start">
+								近7日活跃设备
+								<p slot="content">
+									<span style="white-space: normal;"> 最近7日（不含查询当日）最少使用过一次应用的设备数</span>
+								</p>
+							</tooltip>
+						</div>
+					</i-col>
+					<i-col>
+						<div class="overview-box">
+							<div class="overview-num">
+								6,223
+							</div>
+							<div class="overview-equipment">
+								<i class="ivu-icon ivu-icon ivu-icon-arrow-graph-down-right"></i>
+								<span class="overview-equ">-0.87%</span>
+							</div>
+						</div>
+						<div class="overview-name">
+							<tooltip placement="bottom-start">
+								近7日活跃设备
+								<p slot="content">
+									<span style="white-space: normal;"> 最近7日（不含查询当日）最少使用过一次应用的设备数</span>
+								</p>
+							</tooltip>
+						</div>
+					</i-col>
+					<i-col>
+						<div class="overview-box">
+							<div class="overview-num">
+								6,223
+							</div>
+							<div class="overview-equipment">
+								<i class="ivu-icon ivu-icon ivu-icon-arrow-graph-up-right"></i>
+								<span class="overview-equ">0.27%</span>
+							</div>
+						</div>
+						<div class="overview-name">
+							<tooltip placement="bottom-start">
+								近7日单设备日均使用时长
+								<p slot="content">
+									<span style="white-space: normal;"> 最近7日（不含查询当日）最少使用过一次应用的设备数</span>
+								</p>
+							</tooltip>
+						</div>
+					</i-col>
+				</row>
+			</div>
+			<div class="analytics-view">
+				<div class="analytics-view-title ivu-row">
+					<div class="analytics-view-title-h3 ivu-col ivu-col-span-12">时段分布</div>
+					<div class="analytics-view-title-details ivu-col ivu-col-span-12">
+						<span class="ivu-icon ivu-icon-ios-download-outline tm-icon-font"></span>
+						<div class="base-view-title-notab-pop ivu-poptip">
+							<div class="ivu-poptip-rel">
+								<span class="ivu-icon ivu-icon-ios-help-outline tm-icon-font" style="margin-left: 10px;"></span>
+							</div>
+							<div class="ivu-poptip-popper">
+								<div class="ivu-poptip-content">
+									<div class="ivu-poptip-arrow"></div>
+									<div class="ivu-poptip-inner">
+										<div class="ivu-poptip-title">
+											<div>数据指标说明</div>
+										</div>
+										<div class="ivu-poptip-body">
+											<div class="ivu-poptip-body-content">
+												<div>
+													<p><span>新增设备</span>: 今昨两天，每小时首次安装并且打开应用的设备数。一台设备，只在首次安装打开应用时计作新增设备，重复安装应用的设备不会重复计量。</p>
+													<p class="bg"><span>启动次数</span>: 今昨两天，每小时应用被启动的总次数。</p>
+													<p><span>新增设备</span>: 今昨两天，每小时首次安装并且打开应用的设备数。</p>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<tabs value="name1">
+					<tab-pane label="新增设备" name="name1">
+						<div class="app-chart" id="main"></div>
+					</tab-pane>
+					<tab-pane label="启动次数" name="name2">
+						内容二内容二
+					</tab-pane>
+				</tabs>
+			</div>
+			<div class="analytics-view">
+				<div class="analytics-view-title ivu-row">
+					<div class="analytics-view-title-h3 ivu-col ivu-col-span-12">时段分布</div>
+					<div class="analytics-view-title-details ivu-col ivu-col-span-12">
+						<span class="ivu-icon ivu-icon-ios-download-outline tm-icon-font"></span>
+						<div class="base-view-title-notab-pop ivu-poptip">
+							<div class="ivu-poptip-rel">
+								<span class="ivu-icon ivu-icon-ios-help-outline tm-icon-font" style="margin-left: 10px;"></span>
+							</div>
+							<div class="ivu-poptip-popper">
+								<div class="ivu-poptip-content">
+									<div class="ivu-poptip-arrow"></div>
+									<div class="ivu-poptip-inner">
+										<div class="ivu-poptip-title">
+											<div>数据指标说明</div>
+										</div>
+										<div class="ivu-poptip-body">
+											<div class="ivu-poptip-body-content">
+												<div>
+													<p><span>新增设备</span>: 今昨两天，每小时首次安装并且打开应用的设备数。一台设备，只在首次安装打开应用时计作新增设备，重复安装应用的设备不会重复计量。</p>
+													<p class="bg"><span>启动次数</span>: 今昨两天，每小时应用被启动的总次数。</p>
+													<p><span>新增设备</span>: 今昨两天，每小时首次安装并且打开应用的设备数。</p>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<tabs value="name1" class="noborder">
+					<tab-pane label="新增设备" name="name1">
+						<i-table  :columns="columns7" :data="data6"></i-table>
+						 <div class="pageContent">
+						 	<page :total="100"></page>
+						 </div>
+					</tab-pane>
+					<tab-pane label="启动次数" name="name2" >
+						<i-table  :columns="columns7" :data="data6" :loading="loading"></i-table>
+					</tab-pane>
+				</tabs>
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript" src="js/plugins/vue2.5.17/vue.js"></script>
+	<script type="text/javascript" src="js/plugins/iview2.14/iview.min.js"></script>
+	<script src="js/plugins/echarts2.0/echarts.min.js"></script>
+	<script>
+		var vue = new Vue({
+			el: ".pagetwo",
+			data: {
+				loading: true,
+				columns7: [{
+						title: 'Name',
+						key: 'name',
+						render: (h, params) => {
+							return h('div', [
+								h('Icon', {
+									props: {
+										type: 'person'
+									}
+								}),
+								h('strong', params.row.name)
+							]);
+						}
+					},
+					{
+						title: 'Age',
+						key: 'age'
+					},
+					{
+						title: 'Address',
+						key: 'address'
+					},
+					{
+						title: 'Action',
+						key: 'action',
+						width: 150,
+						align: 'center',
+						render: (h, params) => {
+							return h('div', [
+								h('Button', {
+									props: {
+										type: 'primary',
+										size: 'small'
+									},
+									style: {
+										marginRight: '5px'
+									},
+									on: {
+										click: () => {
+											this.show(params.index)
+										}
+									}
+								}, 'View'),
+								h('Button', {
+									props: {
+										type: 'error',
+										size: 'small'
+									},
+									on: {
+										click: () => {
+											this.remove(params.index)
+										}
+									}
+								}, 'Delete')
+							]);
+						}
+					}
+				],
+				data6: [{
+						name: 'John Brown',
+						age: 18,
+						address: 'New York No. 1 Lake Park'
+					},
+					{
+						name: 'Jim Green',
+						age: 24,
+						address: 'London No. 1 Lake Park'
+					},
+					{
+						name: 'Joe Black',
+						age: 30,
+						address: 'Sydney No. 1 Lake Park'
+					},
+					{
+						name: 'Jon Snow',
+						age: 26,
+						address: 'Ottawa No. 2 Lake Park'
+					}
+				]
+			},
+			methods: {
+				show(index) {
+					this.$Modal.info({
+						title: 'User Info',
+						content: `Name：${this.data6[index].name}<br>Age：${this.data6[index].age}<br>Address：${this.data6[index].address}`
+					})
+				},
+				remove(index) {
+					this.data6.splice(index, 1);
+				}
+			}
+		})
+		//图表
+
+		var myChart = echarts.init(document.getElementById('main'));
+		//图表一
+		var option = {
+			//标题
+			title: {
+				text: '新增'
+			},
+			//图表线条动画
+			animationEasing: {
+				default: 'linear'
+			},
+			//漂浮效果
+			tooltip: {
+				trigger: 'axis'
+			},
+			//图标名称
+			legend: {
+				data: ['邮件营销', '联盟广告', '应用广告'],
+				center: 0
+			},
+			//图表位置
+			grid: {
+				left: '1%',
+				right: '4%',
+				bottom: '3%',
+				containLabel: true
+			},
+			//工具栏
+			toolbox: {
+				feature: {
+					saveAsImage: {},
+					dataView: {
+						show: true,
+						readOnly: true,
+						optionToContent: function(opt) {
+							var axisData = opt.xAxis[0].data;
+							var series = opt.series;
+							var tdHeaders = '<td>时间</td>'; //表头
+							series.forEach(function(item) {
+								tdHeaders += '<td>' + item.name + '</td>'; //组装表头
+							});
+							var table = '<div class="table-responsive"><table class="table table-bordered table-hover" style="text-align:center"><tbody><tr>' + tdHeaders + '</tr>';
+							var tdBodys = ''; //数据
+							for(let i = 0, l = axisData.length; i < l; i++) {
+								for(let j = 0; j < series.length; j++) {
+									tdBodys += '<td>' + series[j].data[i] + '</td>'; //组装表数据
+								}
+								table += '<tr><td>' + axisData[i] + '</td>' + tdBodys + '</tr>';
+								tdBodys = '';
+							}
+							table += '</tbody></table></div>';
+							return table;
+						}
+					}
+				}
+			},
+			xAxis: {
+				type: 'category',
+				boundaryGap: false,
+				data: ['周一', '周二', '周三', '周四', '周五', '周六', '周日']
+			},
+			yAxis: {
+				type: 'value'
+			},
+			color: ['#f9d249', '#ff9900', '#9860df'],
+			series: [{
+					name: '邮件营销',
+					type: 'line',
+					stack: '总量',
+					data: [120, 132, 101, 134, 90, 230, 210]
+				},
+				{
+					name: '联盟广告',
+					type: 'line',
+					stack: '总量',
+					data: [220, 182, 191, 234, 290, 330, 310]
+				},
+				{
+					name: '应用广告',
+					type: 'line',
+					stack: '总量',
+					data: [50, 182, 200, 104, 290, 330, 310]
+				}
+			]
+		};
+		myChart.setOption(option);
+	</script>
+
+</html>

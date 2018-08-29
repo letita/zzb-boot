@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>样式九</title>
+		<link rel="stylesheet" href="css/plugins/iview2.14/iview.css" />
+		<link rel="stylesheet" href="css/tinys_main.css" />
+		<link rel="stylesheet" href="css/tinys_normalize.css" />
+		<link rel="stylesheet" href="css/tinys_public.css" />
+	</head>
+	<body>
+		<div class="pagenine content content-down demo">
+			<div>
+				<h1 class="fw400">认证分析</h1>
+			</div>
+			<div class="analytics-view">
+				<div class="analytics-view-title ivu-row">
+					<div class="analytics-view-title-h3 ivu-col ivu-col-span-12">认证趋势</div>
+					<div class="analytics-view-title-details ivu-col ivu-col-span-12">
+						<span class="ivu-icon ivu-icon-ios-download-outline tm-icon-font"></span>
+						<div class="base-view-title-notab-pop ivu-poptip">
+							<div class="ivu-poptip-rel">
+								<span class="ivu-icon ivu-icon-ios-help-outline tm-icon-font" style="margin-left: 10px;"></span>
+							</div>
+							<div class="ivu-poptip-popper">
+								<div class="ivu-poptip-content">
+									<div class="ivu-poptip-arrow"></div>
+									<div class="ivu-poptip-inner">
+										<div class="ivu-poptip-title">
+											<div>数据指标说明</div>
+										</div>
+										<div class="ivu-poptip-body">
+											<div class="ivu-poptip-body-content">
+												<div>
+													<p><span>新增设备</span>: 今昨两天，每小时首次安装并且打开应用的设备数。一台设备，只在首次安装打开应用时计作新增设备，重复安装应用的设备不会重复计量。</p>
+													<p class="bg"><span>启动次数</span>: 今昨两天，每小时应用被启动的总次数。</p>
+													<p><span>新增设备</span>: 今昨两天，每小时首次安装并且打开应用的设备数。</p>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+			</div>
+			<row class="mt30 noborder">
+				<i-col span="24">
+					<i-table :columns="columns5" :data="data5"></i-table>
+				</i-col>
+			</row>
+			<row :gutter="32" class="mt30">
+				<i-col span="12">
+					<h1 class="error-analytics-view-div-h3">Top10 版本错误分布</h1>
+					<div class="app-chart" id="main1"></div>
+				</i-col>
+				<i-col span="12">
+					<h1 class="error-analytics-view-div-h3">Top10 版本错误分布</h1>
+					<div class="app-chart" id="main2"></div>
+				</i-col>
+			</row>
+		</div>
+	</body>
+	<script type="text/javascript" src="js/plugins/vue2.5.17/vue.js"></script>
+	<script type="text/javascript" src="js/plugins/iview2.14/iview.min.js"></script>
+	<script src="js/plugins/echarts2.0/echarts.min.js"></script>
+	<script>
+		var vue = new Vue({
+			el: ".pagenine",
+			data: {
+				columns5: [{
+						title: 'Date',
+						key: 'date',
+						sortable: true
+					},
+					{
+						title: 'Name',
+						key: 'name'
+					},
+					{
+						title: 'Age',
+						key: 'age',
+						sortable: true
+					},
+					{
+						title: 'Address',
+						key: 'address'
+					}
+				],
+				data5: [{
+						name: 'John Brown',
+						age: 18,
+						address: 'New York No. 1 Lake Park',
+						date: '2016-10-03'
+					},
+					{
+						name: 'Jim Green',
+						age: 24,
+						address: 'London No. 1 Lake Park',
+						date: '2016-10-01'
+					},
+					{
+						name: 'Joe Black',
+						age: 30,
+						address: 'Sydney No. 1 Lake Park',
+						date: '2016-10-02'
+					},
+					{
+						name: 'Jon Snow',
+						age: 26,
+						address: 'Ottawa No. 2 Lake Park',
+						date: '2016-10-04'
+					},
+					{
+						name: 'Jim Green',
+						age: 24,
+						address: 'London No. 1 Lake Park',
+						date: '2016-10-01'
+					},
+					{
+						name: 'Joe Black',
+						age: 30,
+						address: 'Sydney No. 1 Lake Park',
+						date: '2016-10-02'
+					},
+					{
+						name: 'Jon Snow',
+						age: 26,
+						address: 'Ottawa No. 2 Lake Park',
+						date: '2016-10-04'
+					}
+				]
+			}
+		})
+
+		var myChart1 = echarts.init(document.getElementById('main1'));
+		var myChart2 = echarts.init(document.getElementById('main2'));
+		var option = {
+			color: ['#2d8cf0'],
+			tooltip: {
+				trigger: 'axis',
+				axisPointer: { // 坐标轴指示器，坐标轴触发有效
+					type: 'shadow' // 默认为直线，可选为：'line' | 'shadow'
+				}
+			},
+			grid: {
+				left: '3%',
+				right: '4%',
+				bottom: '3%',
+				containLabel: true
+			},
+			xAxis: [{
+				type: 'category',
+				data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+				axisTick: {
+					alignWithLabel: true
+				}
+			}],
+			yAxis: [{
+				type: 'value'
+			}],
+			series: [{
+				name: '直接访问',
+				type: 'bar',
+				barWidth: '60%',
+				data: [10, 52, 200, 334, 390, 330, 220]
+			}]
+		};
+		var option1 = {
+			tooltip: {
+				trigger: 'item',
+				formatter: "{a} <br/>{b}: {c} ({d}%)"
+			},
+			color: ['#f9d249', '#ff9900', '#9860df','#1495eb', '#00cc66'],
+			legend: {
+				orient: 'vertical',
+				x: 'left',
+				data: ['直接访问', '邮件营销', '联盟广告', '视频广告', '搜索引擎']
+			},
+			series: [{
+				name: '访问来源',
+				type: 'pie',
+				radius: ['50%', '70%'],
+				avoidLabelOverlap: false,
+				label: {
+					normal: {
+						show: false,
+						position: 'center'
+					},
+					emphasis: {
+						show: true,
+						textStyle: {
+							fontSize: '30',
+							fontWeight: 'bold'
+						}
+					}
+				},
+				labelLine: {
+					normal: {
+						show: false
+					}
+				},
+				data: [{
+						value: 335,
+						name: '直接访问'
+					},
+					{
+						value: 310,
+						name: '邮件营销'
+					},
+					{
+						value: 234,
+						name: '联盟广告'
+					},
+					{
+						value: 135,
+						name: '视频广告'
+					},
+					{
+						value: 1548,
+						name: '搜索引擎'
+					}
+				]
+			}]
+		};
+		var option2 = {
+			xAxis: {
+				type: 'category',
+				data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+			},
+			yAxis: {
+				type: 'value'
+			},
+			color:['#1495eb'],
+			series: [{
+				data: [820, 932, 901, 934, 1290, 1330, 1320],
+				type: 'line',
+				smooth: true
+			}]
+		};
+		myChart1.setOption(option1);
+		myChart2.setOption(option2);
+	</script>
+
+</html>

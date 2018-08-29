@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<div class="checkbox">
+			<div class="input">
+				<p v-for="item in inputs">
+					<span>自定义字段：</span>
+					<input type="text" v-model="item.val">
+				</p>
+				<button @click="addInput()">添加字段</button>
+				<button @click="sub()">保存提交</button>
+			</div>
+			<h1>提交的信息： {{submsg}}</h1>
+		</div>
+	</body>
+	<script src="js/plugins/vue2.5.17/vue.js"></script>
+	<script>
+		var vm = new Vue({
+			el: ".checkbox",
+			data: {
+				inputs: [],
+				submsg: ''
+			},
+			methods: {
+				addInput() {
+					var obj = {};
+					obj.id = this.inputs.length;
+					obj.val = "";
+					this.inputs.push(obj);
+				},
+				sub() {
+					this.submsg = this.inputs;
+				},
+			}
+		})
+	</script>
+	<style>
+		* {
+			margin: 0 auto;
+			padding: 0;
+			font-family: "微软雅黑";
+		}
+		
+		.checkbox {
+			width: 800px;
+			margin: 50px auto;
+		}
+		
+		.input p {
+			padding: 10px 0;
+		}
+	</style>
+
+</html>

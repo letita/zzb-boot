@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>样式八</title>
+		<link rel="stylesheet" href="css/plugins/iview2.14/iview.css" />
+		<link rel="stylesheet" href="css/tinys_normalize.css" />
+		<link rel="stylesheet" href="css/tinys_public.css" />
+		<link rel="stylesheet" href="css/tinys_main.css" />
+	</head>
+	<body>
+		<div class="pageight content content-down demo quality-gray">
+			<div class="manage-info">
+				<h1>基本信息</h1>
+				<div class="form-con">
+					<form autocomplete="off" class="ivu-form ivu-form-label-right">
+						<div class="ivu-form-item ivu-form-item-required">
+							<label class="ivu-form-item-label" style="width: 80px;">应用名称</label>
+							<div class="ivu-form-item-content" style="margin-left: 80px;">
+								<div class="ivu-input-wrapper ivu-input-type">
+									<input autocomplete="off" spellcheck="false" type="text" placeholder="请输入" class="ivu-input">
+								</div>
+							</div>
+						</div>
+						<div class="ivu-form-item ivu-form-item-required">
+							<label class="ivu-form-item-label" style="width: 80px;">应用平台</label>
+							<div class="ivu-form-item-content" style="margin-left: 80px;">
+								<p><i class="platform-icon ivu-icon ivu-icon-gear-b"></i></p>
+							</div>
+						</div>
+						<div class="ivu-form-item ivu-form-item-required">
+							<label class="ivu-form-item-label" style="width: 80px;">应用类型</label>
+							<div class="ivu-form-item-content" style="margin-left: 80px;">
+								<p>其他</p>
+							</div>
+						</div>
+						<div class="ivu-form-item ivu-form-item-required">
+							<label class="ivu-form-item-label" style="width: 80px;">应用图标</label>
+							<div class="ivu-form-item-content" style="margin-left: 80px;">
+								<div class="app-icon"><img src="https://www.talkingdata.com/dmk/img/10,02eeb3d532a7" alt=""></div>
+							</div>
+						</div>
+						<div class="ivu-form-item ivu-form-item-required">
+							<label class="ivu-form-item-label" style="width: 80px;">创建日期</label>
+							<div class="ivu-form-item-content" style="margin-left: 80px;">
+								<p>2016-05-23</p>
+							</div>
+						</div>
+						<div class="ivu-form-item ivu-form-item-required">
+							<label class="ivu-form-item-label" style="width: 80px;">App ID</label>
+							<div class="ivu-form-item-content" style="margin-left: 80px;">
+								<span id="appId" class="appid">F2A344D2281FD8C5019DAACCF6DE3481</span>
+								<a data-clipboard-target="#appId" class="copy-btn">复制</a>
+							</div>
+						</div>
+						<div class="ivu-form-item">
+							<div class="ivu-form-item-content" style="margin-left: 80px;">
+								<button type="button" class="save-info ivu-btn ivu-btn-primary">
+									<span>保存</span>
+								</button> 
+								<button type="button" class="delete-info ivu-btn">
+									<span>删除应用</span>
+								</button>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript" src="js/plugins/vue2.5.17/vue.js"></script>
+	<script type="text/javascript" src="js/plugins/iview2.14/iview.min.js"></script>
+	<script src="js/plugins/jquery3.3.1/jquery.min.js"></script>
+	<script>
+		var vue = new Vue({
+			el: ".pageight",
+			data: {
+
+			}
+		})
+		$(".manage-info").height($(document).height());
+	</script>
+</html>

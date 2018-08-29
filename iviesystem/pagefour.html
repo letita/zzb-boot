@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>样式九</title>
+		<link rel="stylesheet" href="css/plugins/iview2.14/iview.css" />
+		<link rel="stylesheet" href="css/tinys_main.css" />
+		<link rel="stylesheet" href="css/tinys_normalize.css" />
+		<link rel="stylesheet" href="css/tinys_public.css" />
+	</head>
+
+	<body>
+		<div class="pagefour content content-down demo">
+			<div class="overview  ">
+				<h1 style="padding-bottom: 9px;">事件分析</h1>
+			</div>
+			<div class="ivu-row" style="margin-top: 20px;border-bottom: 1px #ddd solid;padding-bottom: 20px;">
+				<i-button type="primary" shape="circle" icon="ivu-icon ivu-icon-plus">新建</i-button>
+				<div class="analytics-view-title-details ivu-col">
+					<!--<button type="button" class="analytics-view-title-details-btn ivu-btn ivu-btn-text">
+							<span>
+								<a href="javascript:void(0)" title="跳转至数据探索页面">查看详情</a>
+							</span>
+					</button>-->
+					<i-button shape="circle" class="ivu-btn-ghost" icon="ios-trash-outline">删除</i-button>
+					<div class="associative-search">
+						<div class="associative-search-input ivu-input-wrapper ivu-input-type">
+							<!----><i class="ivu-icon ivu-icon-ios-search-strong ivu-input-icon ivu-input-icon-normal"></i>
+							<!----><input autocomplete="off" spellcheck="false" type="text" placeholder="搜索" class="ivu-input">
+							<!---->
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="noborder mt20">
+				<i-table boder="0" ref="selection" :columns="columns7" :data="data6"></i-table>
+			</div>
+			<div class="pageContent">
+				<page :total="100"></page>
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript" src="js/plugins/vue2.5.17/vue.js"></script>
+	<script type="text/javascript" src="js/plugins/iview2.14/iview.min.js"></script>
+	<script src="js/vue-resource.js"></script>
+	<script>
+		var Main = {
+			data() {
+				return {
+					columns7: [{
+							title: 'Name',
+							key: 'name',
+							render: (h, params) => {
+								return h('div', [
+									h('Icon', {
+										props: {
+											type: 'person'
+										}
+									}),
+									h('strong', params.row.name)
+								]);
+							}
+						},
+						{
+							title: 'Age',
+							key: 'age'
+						},
+						{
+							title: 'Address',
+							key: 'address'
+						},
+						{
+							title: 'Action',
+							key: 'action',
+							width: 150,
+							align: 'center',
+							render: (h, params) => {
+								return h('div', [
+									h('Button', {
+										props: {
+											type: 'primary',
+											size: 'small'
+										},
+										style: {
+											marginRight: '5px'
+										},
+										on: {
+											click: () => {
+												this.show(params.index)
+											}
+										}
+									}, 'View'),
+									h('Button', {
+										props: {
+											type: 'error',
+											size: 'small'
+										},
+										on: {
+											click: () => {
+												this.remove(params.index)
+											}
+										}
+									}, 'Delete')
+								]);
+							}
+						}
+					],
+					data6: [{
+							name: 'John Brown',
+							age: 18,
+							address: 'New York No. 1 Lake Park'
+						},
+						{
+							name: 'Jim Green',
+							age: 24,
+							address: 'London No. 1 Lake Park'
+						},
+						{
+							name: 'Joe Black',
+							age: 30,
+							address: 'Sydney No. 1 Lake Park'
+						},
+						{
+							name: 'Jon Snow',
+							age: 26,
+							address: 'Ottawa No. 2 Lake Park'
+						}
+					]
+				}
+			},
+			methods: {
+				show(index) {
+					this.$Modal.info({
+						title: 'User Info',
+						content: `Name：${this.data6[index].name}<br>Age：${this.data6[index].age}<br>Address：${this.data6[index].address}`
+					})
+				},
+				remove(index) {
+					this.data6.splice(index, 1);
+				}
+			}
+		}
+
+		var Component = Vue.extend(Main)
+		new Component().$mount('.pagefour')
+	</script>
+
+</html>

@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>样式三</title>
+		<link rel="stylesheet" href="css/plugins/iview2.14/iview.css" />
+		<link rel="stylesheet" href="css/tinys_main.css" />
+		<link rel="stylesheet" href="css/tinys_normalize.css" />
+		<link rel="stylesheet" href="css/tinys_public.css" />
+	</head>
+
+	<body>
+		<div class="pagethree content content-down demo">
+			<div class="overview">
+				<h1>留存分析</h1>
+			</div>
+			<div class="ivu-row">
+				<div class="ivu-col datatable">
+					<tabs value="name1" class="noborder">
+						<tab-pane label="新增设备存留" name="name1">
+							<i-table :columns="columns9" :data="data1"></i-table>
+						</tab-pane>
+						<tab-pane label="启动次数" name="name2">
+							<i-table  ref="selection" :columns="columns4" :data="data1"></i-table>
+							<!--<i-button @click="handleSelectAll(true)">Set all selected</i-button>
+							<i-button @click="handleSelectAll(false)">Cancel all selected</i-button>-->
+						</tab-pane>
+					</tabs>
+				</div>
+				<div class="analytics-view-title-details ivu-col tableaction keepuser-daytype">
+					<!--<button type="button" class="analytics-view-title-details-btn ivu-btn ivu-btn-text">
+							<span>
+								<a href="javascript:void(0)" title="跳转至数据探索页面">查看详情</a>
+							</span>
+						</button>-->
+					<button data-v-307828ec="" type="button" class="ivu-btn ivu-btn-ghost ivu-btn-circle ivu-btn-small keepuser-daytype-active">
+						<span>日</span>
+					</button>
+					<button data-v-307828ec="" type="button" class="ivu-btn ivu-btn-ghost ivu-btn-circle ivu-btn-small keepuser-daytype-active">
+						<span>周</span>
+					</button>
+					<button data-v-307828ec="" type="button" class="ivu-btn ivu-btn-ghost ivu-btn-circle ivu-btn-small keepuser-daytype-active">
+						<span>月</span>
+					</button>
+					<span class="ivu-icon ivu-icon-ios-download-outline tm-icon-font"></span>
+					<div class="base-view-title-notab-pop ivu-poptip">
+						<div class="ivu-poptip-rel">
+							<span class="ivu-icon ivu-icon-ios-help-outline tm-icon-font" style="margin-left: 10px;"></span>
+						</div>
+						<div class="ivu-poptip-popper">
+							<div class="ivu-poptip-content">
+								<div class="ivu-poptip-arrow"></div>
+								<div class="ivu-poptip-inner">
+									<div class="ivu-poptip-title">
+										<div>数据指标说明</div>
+									</div>
+									<div class="ivu-poptip-body">
+										<div class="ivu-poptip-body-content">
+											<div>
+												<p><span>新增设备</span>: 今昨两天，每小时首次安装并且打开应用的设备数。一台设备，只在首次安装打开应用时计作新增设备，重复安装应用的设备不会重复计量。</p>
+												<p class="bg"><span>启动次数</span>: 今昨两天，每小时应用被启动的总次数。</p>
+												<p><span>新增设备</span>: 今昨两天，每小时首次安装并且打开应用的设备数。</p>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="pageContent">
+				<page :total="100"></page>
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript" src="js/plugins/vue2.5.17/vue.js"></script>
+	<script type="text/javascript" src="js/plugins/iview2.14/iview.min.js"></script>
+	<script src="js/plugins/echarts2.0/echarts.min.js"></script>
+	<script>
+		var vue = new Vue({
+			el: ".pagethree",
+			data: {
+				columns4: [{
+						type: 'selection',
+						width: 60,
+						align: 'center'
+					},
+					{
+						title: 'Name',
+						key: 'name'
+					},
+					{
+						title: 'Age',
+						key: 'age'
+					},
+					{
+						title: 'Address',
+						key: 'address'
+					}
+				],
+				columns9: [{
+						title: 'Name',
+						key: 'name'
+					},
+					{
+						title: 'Age',
+						key: 'age',
+						className: 'large-col',
+						sortable: true
+					},
+					{
+						title: 'Address',
+						key: 'address',
+						className: 'middle-col'
+					},
+					{
+						title: '时间',
+						key: 'date'
+
+					}
+				],
+				data1: [{
+						name: 'John Brown',
+						age: 18,
+						address: 'New York No. 1 Lake Park',
+						date: '2016-10-03',
+
+					},
+					{
+						name: 'Jim Green',
+						age: 24,
+						address: 'London No. 1 Lake Park',
+						date: '2016-10-01'
+					},
+					{
+						name: 'Joe Black',
+						age: 30,
+						address: 'Sydney No. 1 Lake Park',
+						date: '2016-10-02'
+					},
+					{
+						name: 'Jon Snow',
+						age: 26,
+						address: 'Ottawa No. 2 Lake Park',
+						date: '2016-10-04'
+					},
+					{
+						name: 'Jim Green',
+						age: 24,
+						address: 'London No. 1 Lake Park',
+						date: '2016-10-01'
+					},
+					{
+						name: 'Joe Black',
+						age: 30,
+						address: 'Sydney No. 1 Lake Park',
+						date: '2016-10-02'
+					},
+					{
+						name: 'Jon Snow',
+						age: 26,
+						address: 'Ottawa No. 2 Lake Park',
+						date: '2016-10-04'
+					},
+					{
+						name: 'Jim Green',
+						age: 24,
+						address: 'London No. 1 Lake Park',
+						date: '2016-10-01'
+					},
+					{
+						name: 'Joe Black',
+						age: 30,
+						address: 'Sydney No. 1 Lake Park',
+						date: '2016-10-02'
+					},
+					{
+						name: 'Jon Snow',
+						age: 26,
+						address: 'Ottawa No. 2 Lake Park',
+						date: '2016-10-04'
+					}
+				]
+			},
+			methods: {
+				rowClassName(row, index) {
+					if(index === 1) {
+						return 'demo-table-info-row';
+					} else if(index === 3) {
+						return 'demo-table-error-row';
+					}
+					return '';
+				},
+				handleSelectAll(status) {
+					this.$refs.selection.selectAll(status);
+				}
+			}
+		})
+	</script>
+
+</html>
